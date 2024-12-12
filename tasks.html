@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=logout" />
     <link rel="stylesheet" href="styles/nav.css">
-    <link rel="stylesheet" href="styles/groups.css">
-    <title>Stand Up - Tasks</title>
+    <link rel="stylesheet" href="styles/tasks.css">
+    <title>StandUp - Tasks</title>
 </head>
 <body>
     <div class="nav-container">
@@ -27,38 +27,80 @@
     </div>
     <div class="page-content">
         <div class="heading">
-            <h1>My Tasks</h1>
-            <button>
-                <a href="add_task.html">
+            <h1>My groups</h1>
+            <button class="add-task">
+                <a href="add_group.html">
                     Add task
                 </a>
             </button>
         </div>
-        <div class="tbl-header">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <thead>
-                <tr>
-                  <th>Not Started</th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-          <div class="tbl-content">
-            <table cellpadding="0" cellspacing="0" border="0">
-              <tbody>
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Not started</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <tr>
                         <td>
-                            <div>Create Navbar</div>
-                            <button>Start</button>
+                            <div>Create Navbar Html</div>
+                            <button class="start-btn">Start</button>
                         </td>
-                        <td>
- 
-                        </td>
-                       
                     </tr>
-              </tbody>
+                    <tr>
+                        <td>
+                            <div>Create Navbar CSS</div>
+                            <button class="start-btn">Start</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
-          </div>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Started</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>Create Login HTML</div>
+                            <button class="complete-btn">Complete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Create Login CSS</div>
+                            <button class="complete-btn">Complete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div>Create Login Auth</div>
+                            <button class="complete-btn">Complete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="flex">
+                            <div>Create Repo</div>
+                            <a href="">Commit link</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
