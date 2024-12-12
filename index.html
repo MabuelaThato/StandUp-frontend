@@ -14,12 +14,12 @@
             <p class="subtitle">Please enter your credentials</p>
             </div>
     
-            <form action="/" method="POST" class="form">
+            <form action="/" method="POST" class="form" id="loginForm">
                 <div class="form-item">
-                    <input type="email" name="email" placeholder="Email" class="input" required>
+                    <input type="name" id="name" name="name" placeholder="name" class="input" required>
                 </div>
                 <div class="form-item">
-                    <input type="password" name="password" placeholder="Password" class="input" required>
+                    <input type="cell" id="cell" name="cell" placeholder="cell" class="input" required>
                 </div>
     
             <button type="submit" class="button"><a href="groups.html">Sign in</a></button>
@@ -27,5 +27,38 @@
     
         </div>
     </div>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const cell = document.getElementById('cell').value;
+
+            try {
+                const response = await fetch('http://127.0.0.1:5000/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, cell })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Login failed');
+                }
+
+                const data = await response.json();
+
+                localStorage.setItem('user', JSON.stringify(data));
+
+                window.location.href = 'groups.html';
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>

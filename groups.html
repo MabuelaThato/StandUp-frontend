@@ -48,48 +48,64 @@
           <div class="tbl-content">
             <table cellpadding="0" cellspacing="0" border="0">
               <tbody>
-                    <tr>
-                        <td>
-                            <a href="tasks.html">
-                                <div>1</div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="tasks.html">
-                                <div>
-                                    Hackathon1
-                                </div>
-                            </a>
-                        </td>
-                        <td>
-                            <a href="tasks.html" class="members">
-                                <span>You</span>
-                                <span>Khosi</span>
-                            </a>
-                        </td>
-                    </tr>
-                </a>
-                <tr>
-                  <td>
-                    <a href="tasks.html">
-                        <div>2</div>
-                    </a>
-                  </td>
-                  <td>
-                    <a href="tasks.html">
-                        <div>Hackerthon2</div>
-                    </a>
-                </td>
-                  <td class="members">
-                    <a href="tasks.html" class="members">
-                        <span>You</span>
-                        <span>Kamo</span>
-                    </a>
-                </td>
-                </tr>
+                    
               </tbody>
             </table>
           </div>
     </div>
+    <script>
+        const user = JSON.parse(localStorage.getItem('user'));
+        if (!user) {
+            window.location.href = 'index.html';
+        } else {
+            async function fetchAndDisplayGroups() {
+                try {
+                    const response = await fetch('http://127.0.0.1:5000/groups', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${user._id}` 
+                        }
+                    });
+    
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch groups');
+                    }
+    
+                    const groups = await response.json();
+    
+                    const tbody = document.querySelector('.tbl-content tbody');
+                    tbody.innerHTML = ''; 
+
+                    groups.forEach((group, index) => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>
+                                <a href="tasks.html?group_id=${group.id}&user_id=${user._id}">
+                                    <div>${index + 1}</div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="tasks.html?group_id=${group.id}&user_id=${user._id}">
+                                    <div>${group.name}</div>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="tasks.html?group_id=${group.id}&user_id=${user._id}" class="members">
+                                    ${group.members.map(member => `<span>${member}</span>`).join('')}
+                                </a>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                } catch (error) {
+                    console.error('Error fetching groups:', error);
+                    alert('Failed to load groups. Please try again.');
+                }
+            }
+    
+            fetchAndDisplayGroups();
+        }
+    </script>
 </body>
 </html>

@@ -29,7 +29,7 @@
         <div class="heading">
             <h1>My groups</h1>
             <button class="add-task">
-                <a href="add_group.html">
+                <a href="add_task.html">
                     Add task
                 </a>
             </button>
@@ -102,5 +102,15 @@
             </table>
         </div>
     </div>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const groupId = urlParams.get('group_id');
+    const userId = urlParams.get('user_id');
+
+// will add code to fetch tasks
+
+</script>
 </body>
 </html>
