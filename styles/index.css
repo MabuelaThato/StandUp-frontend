@@ -10,7 +10,6 @@
     justify-content: center;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-image: linear-gradient(-60deg, #ff5858 0%, #f09819 100%);
   }
   
   .form-bg {
@@ -24,19 +23,18 @@
     width: 90%;
     max-width: 400px;
     text-align: center;
+    background-color: #EDF6F9;
   }
   
   .header .title {
     font-size: 32px;
     font-weight: bold;
     margin-top: 16px;
-    color: white;
   }
   
   .header .subtitle {
     font-size: 14px;
     margin: 8px 0 32px;
-    color: white;
   }
   
   .form {
@@ -53,11 +51,9 @@
     font-size: 16px;
     background: rgba( 255, 255, 255, 0.18 );
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-    color: white;
   }
   
   .form-item input::placeholder {
-    color: white;
     opacity: 0.8;
   }
   
@@ -80,29 +76,26 @@
   .button {
     width: 100%;
     padding: 12px;
-    background: rgba( 255, 255, 255, 0.18 );
+    background: #006D77;
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    color: white;
+    border: none;
     font-size: 20px;
     border-radius: 8px;
     cursor: pointer;
     transition: opacity 0.3s ease;
     font-weight: bold;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
   }
   
   .button:hover {
-    background: rgba( 255, 255, 255, 0.3 );
+    background: #006d77c5;
   }
 
   a{
     text-decoration: none;
-    color: white;
   }
   a:visited {
-    color: white;
     text-decoration: none;
   }
